@@ -1,1 +1,146 @@
-  
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexwear Task Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="topbar__brand">
+            <span class="topbar__mark">NW</span>
+            <div class="topbar__titles">
+                <h1>Nexwear Task Board</h1>
+                <p>Gestión de tareas y control de versiones del proyecto Nexwear</p>
+            </div>
+        </div>
+        <button id="btn-new-task" class="btn btn--primary">+ Nueva tarea</button>
+    </header>
+    <section class="filters">
+        <div class="filters__group">
+            <label for="filter-branch">Rama</label>
+            <select id="filter-branch">
+                <option value="todas">Todas las ramas</option>
+                <option value="feature/Nicol">feature/Nicol</option>
+                <option value="feature/Alexa">feature/Alexa</option>
+                <option value="develop">develop</option>
+                <option value="main">main</option>
+            </select>
+        </div>
+        <div class="filters__group">
+            <label for="filter-priority">Prioridad</label>
+            <select id="filter-priority">
+                <option value="todas">Todas</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+        </div>
+        <div class="filters__group filters__search">
+            <label for="filter-search">Buscar</label>
+            <input type="search" id="filter-search" placeholder="Buscar por título..." />
+        </div>
+    </section>
+
+    <main class="board" id="board">
+        <section class="column" data-status="pendiente">
+            <header class="column__header">
+                <h2>Pendiente</h2>
+                <span class="column__count" id="count-pendiente">0</span>
+            </header>
+            <div class="column__list" id="list-pendiente"></div>
+        </section>
+
+        <section class="column" data-status="progreso">
+            <header class="column__header">
+                <h2>En progreso</h2>
+                <span class="column__count" id="count-progreso">0</span>
+            </header>
+            <div class="column__list" id="list-progreso"></div>
+        </section>
+
+        <section class="column" data-status="completado">
+            <header class="column__header">
+                <h2>Completado</h2>
+                <span class="column__count" id="count-completado">0</span>
+            </header>
+            <div class="column__list" id="list-completado"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>
+            Proyecto Nexwear · Gestión de Configuración y Control de Versiones · UTS
+        </p>
+    </footer>
+
+    <!-- Modal para nueva tarea -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal__card">
+            <header class="modal__header">
+                <h2>Nueva tarea</h2>
+                <button class="modal__close" id="modal-close" aria-label="Cerrar">&times;</button>
+            </header>
+            <form id="task-form">
+                <label for="task-title">Título</label>
+                <input type="text" id="task-title" required placeholder="Ej. Implementar catálogo de productos" />
+
+                <label for="task-desc">Descripción</label>
+                <textarea id="task-desc" rows="3" placeholder="Detalle breve de la tarea"></textarea>
+                <div class="form-row">
+                    <div>
+                        <label for="task-branch">Rama asociada</label>
+                        <select id="task-branch">
+                            <option value="todas">Todas las ramas</option>
+                            <option value="feature/Nicol">feature/Nicol</option>
+                            <option value="feature/Alexa">feature/Alexa</option>
+                            <option value="develop">develop</option>
+                            <option value="main">main</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="task-priority">Prioridad</label>
+                        <select id="task-priority">
+                            <option value="alta">Alta</option>
+                            <option value="media" selected>Media</option>
+                            <option value="baja">Baja</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="task-assignee">Responsable</label>
+                <select id="task-assignee">
+                    <option value="Emiliano Monge Osuna">
+                        Emiliano Monge Osuna - Administrador
+                    </option>
+
+                    <option value="Nicol Amairani Gastélum Díaz">
+                        Nicol Amairani Gastélum Díaz - Frontend
+                    </option>
+
+                    <option value="Alexa Marian Gastélum Díaz">
+                        Alexa Marian Gastélum Díaz - Backend
+                    </option>
+                </select>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost" id="cancel-task">Cancelar</button>
+                    <button type="submit" class="btn btn--primary">Guardar tarea</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
