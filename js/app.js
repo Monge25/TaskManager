@@ -1,6 +1,3 @@
-// TaskManager · SoftDev Solutions
-// Lógica principal: gestión de tareas, render del tablero y filtros.
-
 const STORAGE_KEY = "nexwear-taskboard";
 
 const STATUSES = ["pendiente", "progreso", "completado"];
