@@ -473,6 +473,15 @@ body {
         min-width: 180px;
     }
 
+    .stat-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
     .stat-card h3 {
         margin: 0;
         font-size: 0.9rem;
