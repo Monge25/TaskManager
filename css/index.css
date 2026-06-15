@@ -328,6 +328,8 @@ body {
 
 .task:hover {
     transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
 }
 
 /* ---------- Footer ---------- */
@@ -415,6 +417,12 @@ body {
     border-radius: 6px;
     background: var(--paper);
     color: var(--ink);
+}
+
+#task-form select:focus {
+    outline: none;
+    border-color: var(--coral);
+    box-shadow: 0 0 0 3px rgba(90, 112, 61, 0.15);
 }
 
 #task-form textarea {
